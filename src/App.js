@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-import { NewsCards } from './components/newsCard/newsCards'
+import { NewsCard } from './components/newsCard/newsCard'
+import { NewsCards } from './components/newsCards/newsCards'
 import alanBtn from '@alan-ai/alan-sdk-web'
 
 const alanKey =
@@ -12,7 +13,7 @@ export const App = () => {
       key: alanKey,
       onCommand: ({ command, articles }) => {
         if (command === 'newHeadlines') {
-          console.log(articles)
+          setNewsArticles(articles)
         }
       },
     })
