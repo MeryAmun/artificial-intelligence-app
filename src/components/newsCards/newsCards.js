@@ -3,11 +3,18 @@ import Grow from '@mui/material/Grow'
 import { NewsCard } from '../newsCard/newsCard'
 import React from 'react'
 import Typography from '@mui/material/Typography'
+import useStyles from './styles'
 
 export const NewsCards = ({ articles }) => {
+  const classes = useStyles()
   return (
     <Grow in>
-      <Grid container alignItems='stretch' spacing={3}>
+      <Grid
+        className={classes.container}
+        container
+        alignItems='stretch'
+        spacing={3}
+      >
         {articles.map((article, i) => {
           return (
             <Grid
