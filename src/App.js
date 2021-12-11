@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
 import { NewsCards } from './components/newsCards/newsCards'
+import alan from './images/alan.jpg'
 import alanBtn from '@alan-ai/alan-sdk-web'
-import useStyles from './styles'
+import useStyles from './styles.js'
 import wordsToNumbers from 'words-to-numbers'
 
 const alanKey =
@@ -11,6 +12,7 @@ const alanKey =
 export const App = () => {
   const [newsArticles, setNewsArticles] = useState([])
   const [activeArticle, setActiveArticle] = useState(-1)
+
   const classes = useStyles()
 
   useEffect(() => {
@@ -39,13 +41,11 @@ export const App = () => {
   }, [])
 
   return (
-    <div className={classes.logoContainer}>
-      <img
-        src='https://alan.app/voice/images/previews/preview.jpg'
-        className={classes.alanLogo}
-        alt='alan logo'
-      />
-      <div></div>
+    <div>
+      <div className={classes.logoContainer}>
+        <img src={alan} className={classes.alanLogo} alt='alan logo' />
+      </div>
+
       <NewsCards articles={newsArticles} activeArticle={activeArticle} />
     </div>
   )

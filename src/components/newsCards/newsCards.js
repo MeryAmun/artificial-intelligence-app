@@ -7,7 +7,14 @@ import useStyles from './styles'
 
 export const NewsCards = ({ articles, activeArticle }) => {
   const classes = useStyles()
+
   const infoCards = [
+    {
+      color: '#283593',
+      title: 'How to use app',
+      info: 'read out the commands after clicking on the microphone to give alan your instruction',
+      text: 'hello ',
+    },
     { color: '#00838f', title: 'Latest News', text: 'Give me the latest news' },
     {
       color: '#1565c0',
@@ -27,6 +34,12 @@ export const NewsCards = ({ articles, activeArticle }) => {
       info: 'CNN, Wired, BBC News, Time, IGN, Buzzfeed, ABC News...',
       text: 'Give me the news from CNN',
     },
+    {
+      color: '#1565c0',
+      title: 'Back to home',
+      info: 'Takes you back to the home screen',
+      text: 'go back, or back',
+    },
   ]
   if (!articles.length) {
     return (
@@ -37,7 +50,7 @@ export const NewsCards = ({ articles, activeArticle }) => {
           alignItems='stretch'
           spacing={3}
         >
-          {infoCards.map((infoCard) => (
+          {infoCards.map((infoCard, index) => (
             <Grid
               item
               xs={12}
@@ -45,6 +58,7 @@ export const NewsCards = ({ articles, activeArticle }) => {
               md={4}
               lg={3}
               className={classes.infoCard}
+              key={index}
             >
               <div
                 className={classes.card}
