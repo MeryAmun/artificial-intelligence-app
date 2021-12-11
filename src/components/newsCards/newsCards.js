@@ -5,7 +5,7 @@ import React from 'react'
 import Typography from '@mui/material/Typography'
 import useStyles from './styles'
 
-export const NewsCards = ({ articles }) => {
+export const NewsCards = ({ articles, activeArticle }) => {
   const classes = useStyles()
   const infoCards = [
     { color: '#00838f', title: 'Latest News', text: 'Give me the latest news' },
@@ -88,7 +88,11 @@ export const NewsCards = ({ articles }) => {
               lg={3}
               style={{ display: 'flex' }}
             >
-              <NewsCard article={article} index={i} />
+              <NewsCard
+                article={article}
+                index={i}
+                activeArticle={activeArticle}
+              />
             </Grid>
           )
         })}

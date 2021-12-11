@@ -5,15 +5,22 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import React from 'react'
 import Typography from '@mui/material/Typography'
+import classNames from 'classnames'
 import useStyles from './styles'
 
 export const NewsCard = ({
   article: { description, publishedAt, source, title, url, urlToImage },
   index,
+  activeArticle,
 }) => {
   const classes = useStyles()
   return (
-    <Card className={classes.card}>
+    <Card
+      className={classNames(
+        classes.Card,
+        activeArticle === index ? classes.activeCard : null
+      )}
+    >
       <CardActionArea href={url} target='_blank'>
         <CardMedia className={classes.media} image={urlToImage} />
         <div className={classes.details}>
