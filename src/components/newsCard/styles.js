@@ -64,8 +64,8 @@ const infoCards = [
 // 3. Alan AI Logo Image:
 const alanLogoSrc = 'https://alan.app/voice/images/previews/preview.jpg'
 
-// 4. App styles.js:
-//import { makeStyles } from '@material-ui/core/styles';
+// // 4. App styles.js:
+// //import { makeStyles } from '@material-ui/core/styles';
 
 // export const makeStyles = (theme) => ({
 //   footer: {
