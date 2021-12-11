@@ -5,15 +5,18 @@ import CardContent from '@mui/material/CardContent'
 import CardMedia from '@mui/material/CardMedia'
 import React from 'react'
 import Typography from '@mui/material/Typography'
+import useStyles from './styles'
 
 export const NewsCard = ({
-  article: { i, description, publishedAt, source, title, url, urlToImage },
+  article: { description, publishedAt, source, title, url, urlToImage },
+  index,
 }) => {
+  const classes = useStyles()
   return (
-    <Card>
-      <CardActionArea>
-        <CardMedia image={urlToImage} />
-        <div>
+    <Card className={classes.card}>
+      <CardActionArea href={url} target='_blank'>
+        <CardMedia className={classes.media} image={urlToImage} />
+        <div className={classes.details}>
           <Typography variant='body2' component='h2'>
             {new Date(publishedAt).toDateString()}
           </Typography>
@@ -21,7 +24,7 @@ export const NewsCard = ({
             {source.name}
           </Typography>
         </div>
-        <Typography gutterBottom variant='h5'>
+        <Typography className={classes.title} gutterBottom variant='h5'>
           {title}
         </Typography>
         <CardContent>
@@ -30,12 +33,12 @@ export const NewsCard = ({
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions className={classes.cardActions}>
         <Button size='small' color='primary'>
           Learn More
         </Button>
         <Typography variant='h5' color='textSecondary'>
-          {i + 1}
+          {index + 1}
         </Typography>
       </CardActions>
     </Card>

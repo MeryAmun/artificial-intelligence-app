@@ -26,7 +26,7 @@ export const NewsCards = ({ articles }) => {
               lg={3}
               style={{ display: 'flex' }}
             >
-              <NewsCard article={article} i={i} />
+              <NewsCard article={article} index={i} />
             </Grid>
           )
         })}
