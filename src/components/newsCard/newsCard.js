@@ -1,4 +1,5 @@
 import { Button, CardActionArea, CardActions } from '@mui/material'
+import { createRef, useEffect, useState } from 'react'
 
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
@@ -13,9 +14,27 @@ export const NewsCard = ({
   index,
   activeArticle,
 }) => {
+  const [elRefs, setElRefs] = useState([])
   const classes = useStyles()
+  const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 50)
+
+  useEffect(() => {
+    setElRefs((refs) =>
+      Array(20)
+        .fill()
+        .map((_, j) => refs[j] || createRef())
+    )
+  }, [])
+
+  useEffect(() => {
+    if (index === activeArticle && elRefs[activeArticle]) {
+      scrollToRef(elRefs[activeArticle])
+    }
+  }, [index, activeArticle, elRefs])
+
   return (
     <Card
+      ref={elRefs[index]}
       className={classNames(
         classes.Card,
         activeArticle === index ? classes.activeCard : null
